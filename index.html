@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>2048</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+    <div id="2048_wrapper">
+        <div id="heading">
+            <h1 class="title">2048</h1>
+            <div id="score_wrapper">
+                <div class="card" id="current_score">
+                    <h3>SCORE</h3>
+                    <h2>6752</h2>
+                </div>
+                <div class="card" id="better_score">
+                    <h3>MEILLEUR</h3>
+                    <h2>6752</h2>
+                </div>
+                <button id="restart"></button>
+            </div>
+        </div>
+        <div id="grid">
+            <div class="row" >
+                <div class="cell empty"></div>
+                <div class="cell empty"></div>
+                <div class="cell empty"></div>
+                <div class="cell empty"></div>
+            </div>
+            <div class="row" >
+                <div class="cell empty"></div>
+                <div class="cell empty"></div>
+                <div class="cell empty"></div>
+                <div class="cell empty"></div>
+            </div>
+            <div class="row" >
+                <div class="cell empty"></div>
+                <div class="cell empty"></div>
+                <div class="cell empty"></div>
+                <div class="cell empty"></div>
+            </div>
+            <div class="row" >
+                <div class="cell empty"></div>
+                <div class="cell empty"></div>
+                <div class="cell empty"></div>
+                <div class="cell empty"></div>
+            </div>
+        </div>
+    </div>
+    <script src="src/position.js"></script>
+    <script src="src/map.js"></script>
+    <script src="src/game.js"></script>
+    </body>
+
+</html>
