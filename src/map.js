@@ -4,6 +4,16 @@ class Map {
         this.grid = grid;
         this.width = grid[0].length;
         this.height = grid.length;
+
+        // Retourne un Proxy qui intercepte les accès avec []
+        return new Proxy(this, {
+            get(target, prop) {
+                if (typeof prop === "string" && !isNaN(prop)) {
+                    return target.grid[prop]; // Redirige l'accès sur this.grid
+                }
+                return target[prop]; // Accès normal aux autres propriétés/méthodes
+            }
+        });
     }
 
     set(pos, c) {
@@ -12,21 +22,6 @@ class Map {
 
     get(pos) {
         return this.grid[pos.y][pos.x];
-    }
-
-    get_cell_asset(pos) {
-        let cell = this.get(pos);
-        if(cell === '#'){
-            return 'assets/WallRound_Beige.png';
-        }else if(cell === 'E'){
-            return 'assets/EndPoint_Red.png';
-        }else if(cell === 'C'){
-            return 'assets/Crate_Brown.png';
-        }else if(cell === 'H'){
-            return 'assets/Character4.png';
-        }else{
-            return 'assets/Ground_Sand.png';
-        }
     }
 
     toString() {
