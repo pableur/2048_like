@@ -9,22 +9,13 @@ class Game {
         ]);
 
         this.moved = false;
+        this.score = 0;
+        this.update_score();
+        this.update_max_score();
         this.game_html = document.getElementById("grid");
 
         this.addTile(this.randomEmptyPosition(), this.randomValue());
         this.addTile(this.randomEmptyPosition(), this.randomValue());
-
-        // this.addTile(new Position(0, 0), 2);
-        // this.addTile(new Position(1, 0), 2);
-
-        // this.addTile(new Position(0, 1), 2);
-        // this.addTile(new Position(3, 1), 2);
-
-        // this.addTile(new Position(0, 2), 2);
-
-        // this.addTile(new Position(0, 3), 2);
-        // this.addTile(new Position(1, 3), 2);
-        // this.addTile(new Position(2, 3), 2);
     }
 
     randomValue(){
@@ -120,6 +111,7 @@ class Game {
 
                 if(elements.length > 1){
                     let value = parseInt(elements[0].innerHTML) * 2;
+                    this.score += value;
                     for(var element of elements){
                         element.remove();
                     }
@@ -127,15 +119,31 @@ class Game {
                 }
             }
         }
+        this.update_score();
+        this.update_max_score();
     }
 
     create_random_tile(){
         if(this.moved == false) return;
-        
+
         var tile = this.addTile(this.randomEmptyPosition(), this.randomValue());
         this.moved = false;
 
         console.log('create random tile ' + tile);
+    }
+
+    update_score(){
+        document.getElementById("score_value").innerHTML = this.score;
+    }
+
+    update_max_score(){
+        var better_score = localStorage.getItem('better_score');
+        if(better_score === null) better_score = 0;
+        if(better_score < this.score){
+            localStorage.setItem('better_score', this.score);
+            better_score = this.score;
+        }
+        document.getElementById("better_score_value").innerHTML = better_score;
     }
 }
 
