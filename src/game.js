@@ -145,6 +145,33 @@ class Game {
         }
         document.getElementById("better_score_value").innerHTML = better_score;
     }
+
+    end_game(){
+        for (let l = 0; l < 4; l++) {
+            for (let c = 0; c < 4; c++) {
+                let current_position = new Position(c, l);
+                if(this.grid.get(current_position).length === 0) return false;
+
+                let elements = this.grid.get(current_position)[0];
+                let current_value = parseInt(elements.innerHTML);
+
+                for(var offset of [-1, 1]){
+                    var new_position = new Position(c + offset, l);
+                    if(new_position.inMap(this.grid) == false) continue;
+                    if(this.grid.get(new_position).length === 0) return false;
+                    if(current_value == parseInt(this.grid.get(new_position)[0].innerHTML)) return false;
+                }
+
+                for(var offset of [-1, 1]){
+                    var new_position = new Position(c, l + offset);
+                    if(new_position.inMap(this.grid) == false) continue;
+                    if(this.grid.get(new_position).length === 0) return false;
+                    if(current_value == parseInt(this.grid.get(new_position)[0].innerHTML)) return false;
+                }
+            }
+        }
+        return true;
+    }
 }
 
 var in_transition = false;
@@ -153,6 +180,10 @@ document.addEventListener("transitionend", (event) => {
     in_transition = false;
     game.fusion();
     game.create_random_tile();
+    if(game.end_game()){
+        console.log('end game');
+        document.getElementById("game-over").style.display = "block";
+    }
 });
 
 document.addEventListener("transitionstart", (event) => {
