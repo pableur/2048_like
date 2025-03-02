@@ -193,6 +193,14 @@ document.addEventListener("transitionstart", (event) => {
     }
 });
 
+const button_restart = document.querySelector("#restart");
+
+// button1
+button_restart.addEventListener("click", () => {
+    window.location.reload();
+});
+
+
 var game = new Game();
 
 document.addEventListener(
