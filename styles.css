@@ -1,5 +1,4 @@
 
-
 body {
     background: #faf8ef;
     display: flex;
@@ -55,8 +54,8 @@ body {
 }
 
 #grid{
-    height: calc(80vh);
-    width: calc(80vh);
+    height: 80vh;
+    width: 80vh;
     background: #bbada0;
     border-radius: 6px;
     padding-top: 15px;
@@ -167,8 +166,19 @@ body {
     color: #f9f6f2;
 }
 
+.tile-1024{
+    background: #e8ed50;
+    color: #f9f6f2;
+}
+
+.tile-2048{
+    background: #ed8450;
+    color: #f9f6f2;
+}
+
+
 .position-0-0{
-    transform: translate(calc(15px), 15px);
+    transform: translate(15px, 15px);
 }
 
 .position-1-0{
