@@ -1,5 +1,6 @@
 import Position from './position.js';
 import Map from './map.js';
+import { Haptics } from '@capacitor/haptics';
 
 class Game {
     constructor() {
@@ -19,6 +20,7 @@ class Game {
 
         this.addTile(this.randomEmptyPosition(), this.randomValue());
         this.addTile(this.randomEmptyPosition(), this.randomValue());
+        this.better_tile = 4;
     }
 
     randomValue(){
@@ -114,6 +116,10 @@ class Game {
 
                 if(elements.length > 1){
                     let value = parseInt(elements[0].innerHTML) * 2;
+                    if (value > this.better_tile){
+                        this.better_tile = value;
+                        Haptics.vibrate();
+                    }
                     this.score += value;
                     for(var element of elements){
                         element.remove();
@@ -247,6 +253,8 @@ document.addEventListener("touchend", function(e) {
     if (e.changedTouches.length === 1) {
         let dx = e.changedTouches[0].clientX - touchStartX;
         let dy = e.changedTouches[0].clientY - touchStartY;
+        Haptics.impact({ style: 'light' });
+
         if (Math.abs(dx) > Math.abs(dy)) {
             if (dx > 30) game.move(new Position(1, 0));      // Swipe right
             else if (dx < -30) game.move(new Position(-1, 0)); // Swipe left
