@@ -1,0 +1,12 @@
+{
+  "name": "2048_like",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "@capacitor/android": "^7.4.3",
+    "@capacitor/core": "^7.4.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.4.3"
+  }
+}
