@@ -176,6 +176,17 @@ body {
     color: #f9f6f2;
 }
 
+// @for $x from 0 through 3 {
+//     @for $y from 0 through 3 {
+//         .position-#{$x}-#{$y} {
+//             transform: translate(
+//                 #{if($x == 0, 15px, "calc(#{$x * 100}% + #{15px + $x * 15px})")},
+//                 #{if($y == 0, 15px, "calc(#{$y * 100}% + #{15px + $y * 15px})")}
+//             );
+//         }
+//     }
+// }
+
 
 .position-0-0{
     transform: translate(15px, 15px);

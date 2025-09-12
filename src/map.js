@@ -28,3 +28,5 @@ class Map {
         return this.grid.map(line => line.join('')).join('\n');
     }
 }
+
+export default Map;

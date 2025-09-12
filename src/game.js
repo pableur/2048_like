@@ -1,3 +1,6 @@
+import Position from './position.js';
+import Map from './map.js';
+
 class Game {
     constructor() {
         console.log("new game");

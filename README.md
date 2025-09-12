@@ -23,3 +23,9 @@ adb devices
 ```sh
 npx cap run android
 ```
+
+Pour lancer le server
+npx vite
+
+Pour faire le build
+npx vite build

@@ -37,3 +37,5 @@ class Position {
         return this.equals(other);
     }
 }
+
+export default Position;
