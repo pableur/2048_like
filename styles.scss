@@ -45,7 +45,13 @@ body {
     border-radius: 3px;
     text-align: center;
     padding: 10px 15px;
-    margin-right: 10px;;
+    margin-right: 10px;
+
+    h3{
+        color: #eee4da;
+        line-height: 13px;
+        margin: 0px;
+    }
 }
 
 .card h3{
@@ -106,9 +112,10 @@ body {
     align-items: center;
     font-weight: bold;
     transition: transform 0.2s ease-in-out;
-    font-size: clamp(10px, 10cqi, 55px);
+    font-size: 60px;
+    line-height: 1;
     text-size-adjust: auto;
-
+    color: #f9f6f2;
 
     &-2{
         background: #eee4da;
@@ -122,47 +129,68 @@ body {
 
     &-8{
         background: #f2b179;
-        color: #f9f6f2;
     }
 
     &-16{
         background: #f59563;
-        color: #f9f6f2;
     }
 
     &-32{
         background: #f67c5f;
-        color: #f9f6f2;
     }
 
     &-64{
         background: #f65e3b;
-        color: #f9f6f2;
     }
 
     &-128{
         background: #edcf72;
-        color: #f9f6f2;
     }
 
     &-256{
         background: #edcc61;
-        color: #f9f6f2;
     }
 
     &-512{
         background: #edc850;
-        color: #f9f6f2;
     }
 
     &-1024{
-        background: #e8ed50;
-        color: #f9f6f2;
+        background: #e7a138;
     }
 
     &-2048{
         background: #ed8450;
-        color: #f9f6f2;
+    }
+
+    &-4096{
+        background: #eee4da;
+        color: #776e65;
+    }
+
+    &-8192{
+        background: #ede0c8;
+        color: #776e65;
+    }
+
+    &-16384{
+        background: #f2b179;
+    }
+
+    &-32768{
+        background: #f59563;
+    }
+
+    &-65536{
+        background: #f67c5f;
+    }
+
+    &-1024, &-2048, &-4096, &-8192{
+        font-size: 45px;
+    }
+
+    &-16384, &-32768, &-65536{
+        font-size: 35px;
     }
 }
 
@@ -196,13 +224,25 @@ body {
     }
 }
 
-
-@media (max-width: 600px) {
+@media (max-width: 650px) {
     #heading{
         flex-direction: column;
     }
+
      #grid{
         width: calc(100vw - 40px);
         height: calc(100vw - 40px);
+    }
+
+    .tile{
+        font-size: 35px;
+
+        &-1024, &-2048, &-4096, &-8192{
+            font-size: 25px;
+        }
+
+        &-16384, &-32768, &-65536{
+            font-size: 20px;
+        }
     }
 }
